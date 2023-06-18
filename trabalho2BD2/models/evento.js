@@ -29,6 +29,8 @@ const eventoSchema = new mongoose.Schema({
   }
 });
 
+eventoSchema.index({ titulo: 'text', descricao: 'text' }, { weights: { titulo: 2, descricao: 1 } });
+
 const Evento = mongoose.model('Evento', eventoSchema);
 
 module.exports = Evento;
